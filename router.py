@@ -12,6 +12,8 @@ def home():
 @app.route('/lg', methods=['GET'])
 def languages_route():
     text = request.args.get('id')
+    if text is None:
+        return 'Es wurde kein Text eingegeben'
     if len(text) == 0:
         return ''
     return detect_language(text)
